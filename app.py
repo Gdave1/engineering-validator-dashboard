@@ -13,6 +13,12 @@ st.set_page_config(
 # ===== HEADER =====
 st.title("⚙️ Engineering Heat Transfer Dashboard")
 st.caption("Built by EBUBECHUKWU David | Mechanical Engineer")
+st.markdown("""
+### 🎯 Purpose
+
+This tool demonstrates how engineering calculations can be validated programmatically, 
+similar to evaluating AI-generated solutions in technical domains.
+""")
 st.markdown("🔗 [View Source Code](https://github.com/gdave1/engineering-validator-dashboard)")
 st.markdown("Validate and analyze heat transfer using engineering principles.")
 
@@ -95,6 +101,8 @@ else:
         ax.plot(temps, Q_values)
         ax.set_xlabel("Hot Temperature (°C)")
         ax.set_ylabel("Heat Transfer (W)")
+        ax.axhline(0)
+        ax.scatter(T1, Q, s=100)
         ax.set_title("Heat Transfer vs Temperature")
         ax.grid()
 
