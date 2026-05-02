@@ -1,6 +1,7 @@
 import streamlit as st
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 # Page config
 st.set_page_config(
@@ -40,6 +41,22 @@ if errors:
 else:
     # ===== CALCULATION =====
     Q = k * A * (T1 - T2) / L
+
+
+ # ===== DOWNLOAD RESULTS =====
+data = {
+    "Parameter": ["k", "A", "T1", "T2", "L", "Q"],
+    "Value": [k, A, T1, T2, L, Q]
+}
+
+df = pd.DataFrame(data)
+
+st.download_button(
+    label="📥 Download Results",
+    data=df.to_csv(index=False),
+    file_name="engineering_results.csv",
+    mime="text/csv"
+)
 
     # ===== METRICS (TOP CARDS) =====
     col1, col2, col3 = st.columns(3)
@@ -102,7 +119,7 @@ else:
         st.write(f"Calculated Heat Transfer: {Q:.2f} W")
 
 
-
+ # ===== ABOUT THIS TOOL =====
 with st.expander("ℹ️ About This Tool"):
     st.write("""
     This application validates engineering heat transfer calculations using Python.
