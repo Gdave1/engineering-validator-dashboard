@@ -38,6 +38,21 @@ T1 = st.sidebar.number_input("Hot Temperature (°C)", value=100.0)
 T2 = st.sidebar.number_input("Cold Temperature (°C)", value=70.0)
 L = st.sidebar.number_input("Thickness (m)", value=5.0)
 
+# ===== ENGINEERING INPUT LOGIC =====
+st.subheader("📘 Engineering Logic")
+
+st.write("""
+Heat transfer is calculated using Fourier’s Law:
+
+Q = kA(T₁ - T₂) / L
+
+Where:
+- Heat flows from higher to lower temperature
+- Output must align with physical expectations
+- Large deviations indicate invalid assumptions
+""")
+
+
 # ===== VALIDATION =====
 errors = []
 if k <= 0:
@@ -107,21 +122,6 @@ else:
         st.write("- No heat loss")
 
     st.divider()
-
-
-st.subheader("📘 Engineering Logic")
-
-st.write("""
-Heat transfer is calculated using Fourier’s Law:
-
-Q = kA(T₁ - T₂) / L
-
-Where:
-- Heat flows from higher to lower temperature
-- Output must align with physical expectations
-- Large deviations indicate invalid assumptions
-""")
-
 
 
     # ===== EXPANDABLE DETAILS =====
