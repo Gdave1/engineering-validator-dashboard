@@ -4,13 +4,15 @@ import matplotlib.pyplot as plt
 
 # Page config
 st.set_page_config(
-    page_title="Engineering Validator",
+    page_title="Engineering Validator Pro",
     page_icon="⚙️",
     layout="wide"
 )
 
 # ===== HEADER =====
 st.title("⚙️ Engineering Heat Transfer Dashboard")
+st.caption("Built by EBUBECHUKWU David | Mechanical Engineer")
+st.markdown("🔗 [View Source Code](https://github.com/gdave1/engineering-validator-dashboard)")
 st.markdown("Validate and analyze heat transfer using engineering principles.")
 
 # ===== SIDEBAR =====
@@ -98,3 +100,18 @@ else:
         st.write(f"T1: {T1} °C")
         st.write(f"T2: {T2} °C")
         st.write(f"Calculated Heat Transfer: {Q:.2f} W")
+
+
+
+with st.expander("ℹ️ About This Tool"):
+    st.write("""
+    This application validates engineering heat transfer calculations using Python.
+
+    Features:
+    - Heat transfer computation (Fourier’s Law)
+    - Input and constraint validation
+    - Engineering assumption analysis
+    - Graphical visualization of system behavior
+
+    Designed to demonstrate engineering reasoning and computational validation.
+    """)
