@@ -19,11 +19,11 @@ st.markdown("Validate and analyze heat transfer using engineering principles.")
 # ===== SIDEBAR =====
 st.sidebar.header("🔧 Input Parameters")
 
-k = st.sidebar.number_input("Thermal Conductivity (W/mK)", value=0.0)
-A = st.sidebar.number_input("Area (m²)", value=0.0)
-T1 = st.sidebar.number_input("Hot Temperature (°C)", value=00.0)
-T2 = st.sidebar.number_input("Cold Temperature (°C)", value=0.0)
-L = st.sidebar.number_input("Thickness (m)", value=0.0)
+k = st.sidebar.number_input("Thermal Conductivity (W/mK)", value=5.0)
+A = st.sidebar.number_input("Area (m²)", value=20.0)
+T1 = st.sidebar.number_input("Hot Temperature (°C)", value=100.0)
+T2 = st.sidebar.number_input("Cold Temperature (°C)", value=70.0)
+L = st.sidebar.number_input("Thickness (m)", value=5.0)
 
 # ===== VALIDATION =====
 errors = []
