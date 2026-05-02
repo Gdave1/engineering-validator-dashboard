@@ -47,16 +47,16 @@ else:
 data = {
     "Parameter": ["k", "A", "T1", "T2", "L", "Q"],
     "Value": [k, A, T1, T2, L, Q]
-}
+    }
 
-df = pd.DataFrame(data)
+    df = pd.DataFrame(data)
 
-st.download_button(
+    st.download_button(
     label="📥 Download Results",
     data=df.to_csv(index=False),
     file_name="engineering_results.csv",
     mime="text/csv"
-)
+    )
 
     # ===== METRICS (TOP CARDS) =====
     col1, col2, col3 = st.columns(3)
