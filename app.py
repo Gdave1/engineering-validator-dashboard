@@ -19,11 +19,11 @@ st.markdown("Validate and analyze heat transfer using engineering principles.")
 # ===== SIDEBAR =====
 st.sidebar.header("🔧 Input Parameters")
 
-k = st.sidebar.number_input("Thermal Conductivity (W/mK)", value=200.0)
-A = st.sidebar.number_input("Area (m²)", value=0.5)
-T1 = st.sidebar.number_input("Hot Temperature (°C)", value=100.0)
-T2 = st.sidebar.number_input("Cold Temperature (°C)", value=30.0)
-L = st.sidebar.number_input("Thickness (m)", value=0.02)
+k = st.sidebar.number_input("Thermal Conductivity (W/mK)", value=0.0)
+A = st.sidebar.number_input("Area (m²)", value=0.0)
+T1 = st.sidebar.number_input("Hot Temperature (°C)", value=00.0)
+T2 = st.sidebar.number_input("Cold Temperature (°C)", value=0.0)
+L = st.sidebar.number_input("Thickness (m)", value=0.0)
 
 # ===== VALIDATION =====
 errors = []
@@ -50,6 +50,21 @@ else:
     col3.metric("Thermal Gradient", f"{(T1 - T2)/L:.2f}")
 
     st.divider()
+
+   # ===== DOWNLOAD RESULTS =====
+data = {
+    "Parameter": ["k", "A", "T1", "T2", "L", "Q"],
+    "Value": [k, A, T1, T2, L, Q]
+    }
+
+df = pd.DataFrame(data)
+
+st.download_button(
+    label="📥 Download Results",
+    data=df.to_csv(index=False),
+    file_name="engineering_results.csv",
+    mime="text/csv"
+    )
 
     # ===== MAIN CONTENT =====
     col_left, col_right = st.columns([2, 1])
@@ -117,19 +132,6 @@ with st.expander("ℹ️ About This Tool"):
     Designed to demonstrate engineering reasoning and computational validation.
     """)
 
-   # ===== DOWNLOAD RESULTS =====
-data = {
-    "Parameter": ["k", "A", "T1", "T2", "L", "Q"],
-    "Value": [k, A, T1, T2, L, Q]
-    }
 
-df = pd.DataFrame(data)
-
-st.download_button(
-    label="📥 Download Results",
-    data=df.to_csv(index=False),
-    file_name="engineering_results.csv",
-    mime="text/csv"
-    )
 
 
