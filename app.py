@@ -16,6 +16,19 @@ st.caption("Built by EBUBECHUKWU David | Mechanical Engineer")
 st.markdown("🔗 [View Source Code](https://github.com/gdave1/engineering-validator-dashboard)")
 st.markdown("Validate and analyze heat transfer using engineering principles.")
 
+
+ # ===== SUBHEADER =====
+st.subheader("🤖 AI Evaluation Perspective")
+
+st.write("""
+This tool simulates how engineering solutions can be evaluated:
+
+- Verifies correctness of computed results
+- Identifies unrealistic outputs
+- Checks assumptions and constraints
+- Mimics validation of AI-generated engineering solutions
+""")
+
 # ===== SIDEBAR =====
 st.sidebar.header("🔧 Input Parameters")
 
@@ -24,6 +37,19 @@ A = st.sidebar.number_input("Area (m²)", value=20.0)
 T1 = st.sidebar.number_input("Hot Temperature (°C)", value=100.0)
 T2 = st.sidebar.number_input("Cold Temperature (°C)", value=70.0)
 L = st.sidebar.number_input("Thickness (m)", value=5.0)
+
+
+
+st.subheader("🧪 Validation Test Case")
+
+if st.button("Run Test Case"):
+    test_Q = k * A * (10 - 100) / L  # intentionally reversed
+
+    if test_Q < 0:
+        st.error("❌ Detected incorrect heat flow direction")
+    else:
+        st.success("✅ Result valid")
+
 
 # ===== VALIDATION =====
 errors = []
