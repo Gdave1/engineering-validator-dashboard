@@ -38,19 +38,6 @@ T1 = st.sidebar.number_input("Hot Temperature (°C)", value=100.0)
 T2 = st.sidebar.number_input("Cold Temperature (°C)", value=70.0)
 L = st.sidebar.number_input("Thickness (m)", value=5.0)
 
-
-
-st.subheader("🧪 Validation Test Case")
-
-if st.button("Run Test Case"):
-    test_Q = k * A * (10 - 100) / L  # intentionally reversed
-
-    if test_Q < 0:
-        st.error("❌ Detected incorrect heat flow direction")
-    else:
-        st.success("✅ Result valid")
-
-
 # ===== VALIDATION =====
 errors = []
 if k <= 0:
@@ -120,6 +107,22 @@ else:
         st.write("- No heat loss")
 
     st.divider()
+
+
+st.subheader("📘 Engineering Logic")
+
+st.write("""
+Heat transfer is calculated using Fourier’s Law:
+
+Q = kA(T₁ - T₂) / L
+
+Where:
+- Heat flows from higher to lower temperature
+- Output must align with physical expectations
+- Large deviations indicate invalid assumptions
+""")
+
+
 
     # ===== EXPANDABLE DETAILS =====
     with st.expander("🔍 Detailed Engineering Output"):
